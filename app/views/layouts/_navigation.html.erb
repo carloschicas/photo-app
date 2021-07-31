@@ -28,7 +28,12 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+
       <% if current_user %>
+        <li class="nav-item user-name">
+          <%= fa_icon 'user' %>
+          <%= link_to truncate(current_user.email, length: 25), edit_user_registration_path %>
+        </li>
         <li class="nav-item">
           <%= link_to 'Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete %>
         </li>
